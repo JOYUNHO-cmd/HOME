@@ -79,18 +79,31 @@ nav .nav-shop { display: none; }
 }
 .shop-link:hover { transform: translateY(2px); box-shadow: 0 3px 0 var(--ink); }
 .shop-link .n { background: #03c75a; border-radius: 6px; width: 24px; height: 24px; display: grid; place-items: center; font-size: 14px; }
+.shop-link.idus-link { background: #fff; color: var(--ink); }
+.shop-link .n.i { background: #ff6f3c; color: #fff; }
+.buy-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.button.idus { background: #fff; }
+.mk { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; color: #fff; font-size: 15px; font-weight: 900; }
+.mk.n { background: #03c75a; } .mk.i { background: #ff6f3c; }
 .menu-toggle { display: none; width: 52px; height: 52px; border-radius: 12px; border: var(--line) solid var(--ink); background: #fff; font-size: 24px; box-shadow: 3px 3px 0 var(--ink); }
 
 /* 최상단 배너 */
-.top-banner { background: var(--pink); border-bottom: var(--line) solid var(--ink); }
-.top-banner img { width: 100%; max-width: 1600px; margin: 0 auto; aspect-ratio: 1610 / 830; object-fit: cover; }
+.top-banner { position: relative; overflow: hidden; background: var(--pink); border-bottom: var(--line) solid var(--ink); }
+.top-banner::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.22) 2.5px, transparent 3px); background-size: 26px 26px; }
+.banner-inner { position: relative; max-width: 1091px; margin: 0 auto; }
+.banner-inner img { width: 100%; aspect-ratio: 1091 / 566; object-fit: cover;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
+.banner-inner::after { content: ''; position: absolute; top: 0; bottom: 0; left: 52%; right: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.22) 2.5px, transparent 3px); background-size: 26px 26px; }
+.banner-inner::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 12%; z-index: 1; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.22) 2.5px, transparent 3px); background-size: 26px 26px; }
 
 /* 히어로 */
 .hero, .page-head { position: relative; overflow: hidden; background: var(--pink); color: #fff; }
 .hero { padding: 64px 0 56px; border-bottom: var(--line) solid var(--ink); }
 .hero-sun {
-  position: absolute; width: 760px; height: 760px; right: -140px; top: -120px; border-radius: 50%;
-  background: repeating-conic-gradient(rgba(255,255,255,.18) 0 8deg, transparent 8deg 22deg), #f69aa4;
+  position: absolute; width: 760px; height: 760px; right: -140px; top: -120px;
+  background: url(images/hero-nurungji-sun.svg) center / contain no-repeat; animation: spin 90s linear infinite;
 }
 .hero .sp1 { left: 46%; top: 60px; }
 .hero .sp2 { right: 6%; bottom: 70px; width: 28px; fill: #fff; animation-delay: .9s; }
@@ -124,10 +137,19 @@ main section { margin: 0; }
 /* 이야기 */
 .story-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
 .story-drawing { position: relative; background: var(--pink-l); padding: 70px 40px 30px; overflow: hidden; }
-.story-drawing::before, .detail-art::before, .card-art::before, .feature-art::before {
-  content: ''; position: absolute; inset: -30%;
-  background: repeating-conic-gradient(from 0deg at 50% 60%, rgba(255,255,255,.55) 0 8deg, transparent 8deg 22deg);
+/* 캐릭터 무대: 쌀알 패턴 + 노릇한 누룽지 바닥 */
+.story-drawing, .detail-art, .card-art, .feature-art {
+  background-image: url(images/nurungji-ground.svg), url(images/rice-pattern.svg) !important;
+  background-repeat: no-repeat, repeat !important;
+  background-position: center bottom, 0 0 !important;
+  background-size: 100% 64px, 96px 96px !important;
 }
+.story-drawing::before, .detail-art::before, .card-art::before, .feature-art::before {
+  content: ''; position: absolute; left: 50%; top: 46%; width: 76%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.85) 0 38%, rgba(255,255,255,0) 70%);
+}
+.card-art { padding-bottom: 14px; }
+.feature-art, .story-drawing, .detail-art { padding-bottom: 22px !important; }
 .story-drawing .nr-chr { position: relative; width: 78%; margin: 0 auto; }
 .story-drawing .sparkle { right: 30px; top: 26px; }
 .story-drawing .speech { left: 22px; top: 18px; }
@@ -206,7 +228,7 @@ main section { margin: 0; }
 
 /* 서브 페이지 */
 .page-head { padding: 52px 0 0; border-bottom: var(--line) solid var(--ink); }
-.page-head::before { content: ''; position: absolute; width: 520px; height: 520px; right: -90px; top: -80px; border-radius: 50%; background: repeating-conic-gradient(rgba(255,255,255,.18) 0 8deg, transparent 8deg 22deg), #f69aa4; }
+.page-head::before { content: ''; position: absolute; width: 560px; height: 560px; right: -110px; top: -100px; background: url(images/hero-nurungji-sun.svg) center / contain no-repeat; animation: spin 90s linear infinite; }
 .page-head-inner { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .page-head-inner > div:first-child { padding-bottom: 44px; }
 .page-head-art .nr-chr { width: 260px; margin-bottom: -4px; }
@@ -214,6 +236,8 @@ main section { margin: 0; }
 .page-body > section { margin: 72px 0; }
 .product-note { text-align: center; font-size: 16px; font-weight: 600; color: var(--sub); margin: 30px 0 0; }
 .back { display: inline-flex; align-items: center; gap: 6px; font-weight: 900; font-size: 18px; background: #fff; border: 3px solid var(--ink); border-radius: 999px; padding: 8px 18px; box-shadow: 3px 3px 0 var(--ink); }
+.back-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.back.current { background: var(--pink); color: #fff; }
 .detail { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin: 34px 0 0 !important; }
 .detail-art { position: relative; overflow: hidden; background: var(--bg, #fff3e0); padding: 80px 30px 30px; }
 .detail-art .nr-chr { position: relative; width: 82%; margin: 0 auto; }
@@ -267,6 +291,7 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
 @keyframes wave { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-16deg); } }
 @keyframes steam { 0%,100% { opacity: .2; transform: translateY(6px); } 50% { opacity: .95; transform: translateY(-6px); } }
 @keyframes twinkle { 0%,100% { transform: scale(1) rotate(0); opacity: 1; } 50% { transform: scale(.7) rotate(18deg); opacity: .7; } }
+@keyframes spin { to { transform: rotate(360deg); } }
 @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 /* 반응형 */
@@ -280,6 +305,7 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   nav a { font-size: 21px; padding: 14px 6px; border-bottom: 2px dashed rgba(59,32,38,.15); border-radius: 0; }
   nav .nav-shop { display: block; color: var(--pink-d); border-bottom: 0; }
   .shop-link { margin-left: auto; }
+  .shop-link.idus-link { margin-left: 0; }
   .menu-toggle { display: grid; place-items: center; order: 3; }
   .hero-inner, .story-layout, .detail { grid-template-columns: 1fr; }
   .hero-friends { height: 360px; }
@@ -305,6 +331,7 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   .brand-text { font-size: 21px; }
   .brand-text small { font-size: 11px; }
   .shop-link { font-size: 0; padding: 0; width: 50px; height: 50px; justify-content: center; gap: 0; }
+  .buy-row .button { width: 100%; }
   .shop-link .n { font-size: 16px; width: 28px; height: 28px; }
   .menu-toggle { width: 50px; height: 50px; }
   .hero { padding-top: 44px; }
