@@ -282,11 +282,12 @@ main section { margin: 0; }
   background: linear-gradient(transparent 72%, rgba(243,127,140,.45) 72% 88%, transparent 88%); padding: 0 8px; }
 .ceo-photo { position: relative; margin: 0; padding: 0; overflow: visible; transform: rotate(2deg); }
 .ceo-photo img { width: 100%; border-radius: 20px; display: block; }
-.ceo-photo .speech { left: -24px; bottom: 34px; animation-delay: .4s; }
+.ceo-photo .speech { left: 5%; top: 6%; bottom: auto; animation-delay: .4s; }
+.speech.to-face::after { left: auto; bottom: auto; right: -14px; top: 58%; transform: rotate(-45deg); }
 @media (max-width: 900px) {
   .ceo-letter { grid-template-columns: 1fr; }
   .ceo-photo { order: -1; max-width: 520px; margin: 0 auto; }
-  .ceo-photo .speech { left: 10px; }
+  .ceo-photo .speech { left: 4%; top: 5%; font-size: 16px; padding: 10px 14px; }
   .letter { padding: 30px 24px; }
   .letter-body { font-size: 18px; line-height: 2.1; }
 }
