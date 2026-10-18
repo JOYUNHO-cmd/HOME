@@ -107,9 +107,11 @@ nav .nav-shop { display: none; }
 .hero, .page-head { position: relative; overflow: hidden; background: var(--pink); color: #fff; }
 .hero { padding: 64px 0 56px; border-bottom: var(--line) solid var(--ink); }
 .hero-sun {
-  position: absolute; width: 760px; height: 760px; right: -140px; top: -120px;
+  position: absolute; z-index: 0; pointer-events: none;
+  width: 720px; height: 720px; left: calc(50% - 360px); top: calc(50% - 360px);
   background: url(images/hero-nurungji-sun.svg) center / contain no-repeat; animation: spin 90s linear infinite;
 }
+.hero-friends .friend, .hero-friends .speech { z-index: 2; }
 .hero .sp1 { left: 46%; top: 60px; }
 .hero .sp2 { right: 6%; bottom: 70px; width: 28px; fill: #fff; animation-delay: .9s; }
 .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 24px; }
@@ -233,7 +235,9 @@ main section { margin: 0; }
 
 /* 서브 페이지 */
 .page-head { padding: 52px 0 0; border-bottom: var(--line) solid var(--ink); }
-.page-head::before { content: ''; position: absolute; width: 560px; height: 560px; right: -110px; top: -100px; background: url(images/hero-nurungji-sun.svg) center / contain no-repeat; animation: spin 90s linear infinite; }
+.page-head-art { position: relative; }
+.page-head-art .nr-chr { position: relative; z-index: 1; }
+.page-head-art::before { content: ''; position: absolute; z-index: 0; pointer-events: none; width: 520px; height: 520px; left: calc(50% - 260px); top: calc(50% - 260px); background: url(images/hero-nurungji-sun.svg) center / contain no-repeat; animation: spin 90s linear infinite; }
 .page-head-inner { position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .page-head-inner > div:first-child { padding-bottom: 44px; }
 .page-head-art .nr-chr { width: 260px; margin-bottom: -4px; }
@@ -364,6 +368,8 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   .menu-toggle { display: grid; place-items: center; order: 3; }
   .hero-inner, .story-layout, .detail { grid-template-columns: 1fr; }
   .hero-friends { height: 360px; }
+  .hero-sun { width: 560px; height: 560px; left: calc(50% - 280px); top: calc(50% - 280px); }
+  .page-head-art::before { width: 380px; height: 380px; left: calc(50% - 190px); top: calc(50% - 190px); }
   .main-friend { width: 280px; }
   .side-friend { width: 190px; }
   .benefits { grid-template-columns: 1fr; gap: 34px; }
@@ -395,6 +401,7 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   .hero-copy p, .page-head p { font-size: 19px; }
   .actions .button { width: 100%; }
   .hero-friends { height: 300px; }
+  .hero-sun { width: 440px; height: 440px; left: calc(50% - 220px); top: calc(50% - 220px); }
   .main-friend { width: 220px; left: 0; }
   .side-friend { width: 150px; }
   .hero-speech { font-size: 16px; }
