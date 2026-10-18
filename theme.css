@@ -63,6 +63,11 @@ img { max-width: 100%; display: block; }
 header { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: var(--line) solid var(--ink); }
 .header-inner { display: flex; align-items: center; gap: 24px; min-height: 82px; position: relative; }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
+.logo-brand img { height: 80px; width: auto; display: block; margin: 4px 0; }
+.footer-logo { flex-direction: column; align-items: flex-start; gap: 8px; }
+.footer-logo img { height: 110px; }
+.footer-slogan { color: #e6c9cf; font-weight: 700; font-size: 16px; }
+.hero-logo { display: block; width: 190px; height: auto; margin: 0 0 18px -8px; transform: rotate(-4deg); filter: drop-shadow(4px 5px 0 rgba(59,32,38,.3)); animation: bob 3.2s ease-in-out infinite; }
 .brand-mark {
   width: 48px; height: 48px; display: grid; place-items: center; font-size: 24px; color: #fff;
   background: var(--pink); border: var(--line) solid var(--ink); border-radius: 15px; box-shadow: 3px 3px 0 var(--ink); transform: rotate(-6deg);
@@ -330,6 +335,8 @@ body.paused *, body.paused *::before, body.paused *::after { animation-play-stat
   .brand-mark { width: 40px; height: 40px; font-size: 20px; }
   .brand-text { font-size: 21px; }
   .brand-text small { font-size: 11px; }
+  .logo-brand img { height: 52px; }
+  .hero-logo { width: 150px; }
   .shop-link { font-size: 0; padding: 0; width: 50px; height: 50px; justify-content: center; gap: 0; }
   .buy-row .button { width: 100%; }
   .shop-link .n { font-size: 16px; width: 28px; height: 28px; }
